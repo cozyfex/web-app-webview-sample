@@ -24,6 +24,10 @@ const IndexPage = () => {
     window.AppJS.showToast('test');
   };
 
+  const calliOSScript = () => {
+    window.webkit?.messageHandlers.AppJS.postMessage({ name: 'showToast', value: 'test' });
+  };
+
   return (
     <WebLayout>
       <div>
@@ -39,6 +43,9 @@ const IndexPage = () => {
         </div>
         <div>
           <button onClick={callAndroidScript}>Call Android Javascript</button>
+        </div>
+        <div>
+          <button onClick={calliOSScript}>Call iOS Javascript</button>
         </div>
 
         <ErrorBoundary FallbackComponent={ErrorFallbackComponent}>
